@@ -2,8 +2,11 @@ import PageHero from "../components/PageHero";
 import SectionLabel from "../components/graphics/SectionLabel";
 import ContourLines from "../components/graphics/ContourLines";
 import Reveal from "../components/graphics/Reveal";
+import StatBlock from "../components/graphics/StatBlock";
 import {
   company,
+  executiveOverview,
+  stats,
   coreValues,
   competitiveAdvantages,
   futureVision,
@@ -20,9 +23,34 @@ export default function About() {
         description="A specialized consulting and analytics firm at the intersection of geospatial science, environmental expertise, and artificial intelligence."
       />
 
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <Reveal>
+          <SectionLabel index="01" label={executiveOverview.kicker} />
+          <h2 className="mt-4 max-w-3xl font-heading text-3xl font-bold text-navy sm:text-4xl">
+            {executiveOverview.headline}
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-grey-dark/70">
+            {executiveOverview.body}
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-2 gap-8 border-t border-grey-dark/10 pt-10 sm:grid-cols-4">
+          {stats.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 0.08}>
+              <StatBlock
+                value={stat.value}
+                suffix={stat.suffix}
+                padTo={stat.padTo}
+                label={stat.label}
+              />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-4xl px-6 py-20 lg:px-8">
         <Reveal>
-          <SectionLabel index="01" label="About the Company" />
+          <SectionLabel index="02" label="About the Company" />
           <p className="mt-6 text-lg leading-relaxed text-grey-dark/80">{company.about}</p>
         </Reveal>
       </section>
@@ -30,7 +58,7 @@ export default function About() {
       <section className="bg-grey-light py-20">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <Reveal>
-            <SectionLabel index="02" label="Vision, Mission & Core Values" />
+            <SectionLabel index="03" label="Vision, Mission & Core Values" />
           </Reveal>
 
           <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-2">
@@ -74,7 +102,7 @@ export default function About() {
 
       <section className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <Reveal>
-          <SectionLabel index="03" label="Competitive Advantages" />
+          <SectionLabel index="04" label="Competitive Advantages" />
           <p className="mt-4 max-w-2xl font-heading text-3xl font-bold text-navy">
             What sets our practice apart
           </p>
@@ -97,7 +125,7 @@ export default function About() {
         <ContourLines opacity={0.12} />
         <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
           <Reveal>
-            <SectionLabel index="04" label="Future Vision" dark />
+            <SectionLabel index="05" label="Future Vision" dark />
             <p className="mt-4 max-w-2xl font-heading text-3xl font-bold">
               {futureVision.statement}
             </p>

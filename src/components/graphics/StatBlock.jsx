@@ -1,4 +1,6 @@
-export default function StatBlock({ value, label, dark = false }) {
+import NumberTicker from "./NumberTicker";
+
+export default function StatBlock({ value, suffix = "", padTo = 0, label, dark = false }) {
   return (
     <div className="text-center sm:text-left">
       <div
@@ -6,7 +8,8 @@ export default function StatBlock({ value, label, dark = false }) {
           dark ? "text-white" : "text-navy"
         }`}
       >
-        {value}
+        <NumberTicker value={value} padTo={padTo} />
+        {suffix}
       </div>
       <p className={`mt-2 text-sm leading-snug ${dark ? "text-white/60" : "text-grey-dark/60"}`}>
         {label}

@@ -21,10 +21,26 @@ export const executiveOverview = {
 };
 
 export const stats = [
-  { value: "06", label: "Core service lines spanning the full project lifecycle" },
-  { value: "06", label: "Industry sectors served, from energy to public infrastructure" },
-  { value: "12+", label: "Integrated technology platforms and data pipelines" },
-  { value: "360°", label: "End-to-end coverage — from site acquisition to ongoing monitoring" },
+  {
+    value: 6,
+    padTo: 2,
+    label: "Core service lines spanning the full project lifecycle",
+  },
+  {
+    value: 6,
+    padTo: 2,
+    label: "Industry sectors served, from energy to public infrastructure",
+  },
+  {
+    value: 12,
+    suffix: "+",
+    label: "Integrated technology platforms and data pipelines",
+  },
+  {
+    value: 360,
+    suffix: "°",
+    label: "End-to-end coverage — from site acquisition to ongoing monitoring",
+  },
 ];
 
 export const coreValues = [
