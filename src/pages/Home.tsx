@@ -1,6 +1,8 @@
+import { lazy, Suspense } from "react";
 import logo from "../assets/sarthi-logo.svg";
 import { SatelliteIcon, DroneIcon, AIIcon } from "../components/graphics/ThemeIcons";
-import FlyingDrone from "../components/graphics/FlyingDrone";
+
+const FlyingDrone = lazy(() => import("../components/graphics/FlyingDrone3D"));
 
 const CAPABILITY_CHIPS = [
   { icon: SatelliteIcon, label: "Satellite Intelligence" },
@@ -31,7 +33,9 @@ export default function Home() {
           playsInline
         />
 
-        <FlyingDrone />
+        <Suspense fallback={null}>
+          <FlyingDrone />
+        </Suspense>
 
         <div className="relative z-10 flex flex-col min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full p-4 sm:p-6 md:p-8 gap-6">
           {/* Navbar */}
