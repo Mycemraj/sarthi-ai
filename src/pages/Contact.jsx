@@ -21,7 +21,8 @@ export default function Contact() {
   return (
     <div>
       <PageHero
-        index="09"
+        id="contact"
+        index="06"
         eyebrow="Contact"
         title="Let's talk about your project"
         description="Reach out to discuss geospatial, environmental, or AI/ML solutions tailored to your needs."

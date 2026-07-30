@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/graphics/SectionLabel";
 import ContourLines from "../components/graphics/ContourLines";
@@ -12,7 +11,8 @@ export default function Sustainability() {
   return (
     <div>
       <PageHero
-        index="08"
+        id="sustainability"
+        index="04"
         eyebrow="Sustainability & ESG"
         title="Resilience and responsibility, by design"
         description="Environmental stewardship and disaster resilience aren't an add-on service — they're built into the methodology behind every engagement."
@@ -31,24 +31,24 @@ export default function Sustainability() {
             <div className="h-full rounded-2xl border border-grey-dark/10 p-6">
               <h3 className="font-heading text-lg font-semibold text-navy">{eia.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">{eia.summary}</p>
-              <Link
-                to="/services#eia"
+              <a
+                href="#eia"
                 className="mt-4 inline-block text-sm font-semibold text-teal"
               >
                 View EIA capabilities →
-              </Link>
+              </a>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="h-full rounded-2xl border border-grey-dark/10 p-6">
               <h3 className="font-heading text-lg font-semibold text-navy">{dmp.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">{dmp.summary}</p>
-              <Link
-                to="/services#dmp"
+              <a
+                href="#dmp"
                 className="mt-4 inline-block text-sm font-semibold text-teal"
               >
                 View disaster planning capabilities →
-              </Link>
+              </a>
             </div>
           </Reveal>
         </div>
@@ -85,12 +85,12 @@ export default function Sustainability() {
         <p className="text-grey-dark/70">
           Have an environmental or disaster-risk requirement you need to plan around?
         </p>
-        <Link
-          to="/contact"
+        <a
+          href="#contact"
           className="mt-6 inline-block rounded-full bg-navy px-8 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-teal"
         >
           Talk to Our Team
-        </Link>
+        </a>
       </Reveal>
     </div>
   );

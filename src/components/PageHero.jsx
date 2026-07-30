@@ -1,9 +1,9 @@
 import ContourLines from "./graphics/ContourLines";
 import CornerFrame from "./graphics/CornerFrame";
 
-export default function PageHero({ index, eyebrow, title, description }) {
+export default function PageHero({ id, index, eyebrow, title, description }) {
   return (
-    <section className="relative overflow-hidden bg-navy">
+    <section id={id} className="relative scroll-mt-20 overflow-hidden bg-navy">
       <ContourLines opacity={0.15} />
       <CornerFrame inset={20} />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(0,174,239,0.2),_transparent_55%)]" />

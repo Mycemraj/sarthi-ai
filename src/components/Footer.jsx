@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import logo from "../assets/sarthi-logo.svg";
 import { sectors } from "../data/content";
 
@@ -19,12 +18,12 @@ export default function Footer() {
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-azure">Navigate</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><Link to="/about" className="hover:text-white">About Us</Link></li>
-            <li><Link to="/services" className="hover:text-white">Services</Link></li>
-            <li><Link to="/technology" className="hover:text-white">Technology</Link></li>
-            <li><Link to="/sustainability" className="hover:text-white">Sustainability</Link></li>
-            <li><Link to="/sectors" className="hover:text-white">Industries</Link></li>
-            <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+            <li><a href="#about" className="hover:text-white">About Us</a></li>
+            <li><a href="#services" className="hover:text-white">Services</a></li>
+            <li><a href="#technology" className="hover:text-white">Technology</a></li>
+            <li><a href="#sustainability" className="hover:text-white">Sustainability</a></li>
+            <li><a href="#sectors" className="hover:text-white">Industries</a></li>
+            <li><a href="#contact" className="hover:text-white">Contact</a></li>
           </ul>
         </div>
 

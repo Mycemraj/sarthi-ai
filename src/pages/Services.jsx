@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import ServiceAccordion from "../components/ServiceAccordion";
 import SectionLabel from "../components/graphics/SectionLabel";
@@ -10,7 +9,8 @@ export default function Services() {
   return (
     <div>
       <PageHero
-        index="04"
+        id="services"
+        index="02"
         eyebrow="Core Services"
         title="Six disciplines, one integrated approach"
         description="From site suitability to AI-enabled analytics, our services are designed to work together across the project lifecycle."
@@ -29,7 +29,7 @@ export default function Services() {
       <section className="bg-grey-light py-20">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <Reveal>
-            <SectionLabel index="05" label="Methodology & Workflow" />
+            <SectionLabel index="01" label="Methodology & Workflow" />
             <p className="mt-4 max-w-2xl font-heading text-3xl font-bold text-navy">
               How an engagement runs, start to finish
             </p>
@@ -42,7 +42,7 @@ export default function Services() {
 
       <section className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <Reveal>
-          <SectionLabel index="06" label="Industries We Serve" />
+          <SectionLabel index="02" label="Industries We Serve" />
           <p className="mt-4 max-w-2xl font-heading text-3xl font-bold text-navy">
             Applied across critical sectors
           </p>
@@ -57,12 +57,12 @@ export default function Services() {
             </Reveal>
           ))}
         </div>
-        <Link
-          to="/sectors"
+        <a
+          href="#sectors"
           className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-teal"
         >
           View full industry coverage →
-        </Link>
+        </a>
       </section>
     </div>
   );

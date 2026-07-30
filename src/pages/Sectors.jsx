@@ -7,7 +7,8 @@ export default function Sectors() {
   return (
     <div>
       <PageHero
-        index="06"
+        id="sectors"
+        index="05"
         eyebrow="Industries Served"
         title="Trusted across critical industries"
         description="Our solutions support planning, compliance, and risk management across a wide range of sectors."

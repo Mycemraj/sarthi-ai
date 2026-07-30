@@ -27,7 +27,8 @@ export default function Technology() {
   return (
     <div>
       <PageHero
-        index="07"
+        id="technology"
+        index="03"
         eyebrow="Technology & Innovation"
         title="An AI-native technology stack"
         description="Geospatial and environmental expertise is delivered through a connected stack — acquisition, processing, intelligence, and visualization work as one system."

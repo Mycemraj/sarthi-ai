@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/graphics/SectionLabel";
 import ContourLines from "../components/graphics/ContourLines";
@@ -14,7 +13,8 @@ export default function About() {
   return (
     <div>
       <PageHero
-        index="03"
+        id="about"
+        index="01"
         eyebrow="About Us"
         title="Engineering resilient, sustainable futures"
         description="A specialized consulting and analytics firm at the intersection of geospatial science, environmental expertise, and artificial intelligence."
@@ -126,18 +126,18 @@ export default function About() {
           commitments.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
-          <Link
-            to="/technology"
+          <a
+            href="#technology"
             className="rounded-full bg-navy px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal"
           >
             View Technology
-          </Link>
-          <Link
-            to="/sustainability"
+          </a>
+          <a
+            href="#sustainability"
             className="rounded-full border border-navy/20 px-6 py-2.5 text-sm font-semibold text-navy transition-colors hover:bg-grey-light"
           >
             View Sustainability &amp; ESG
-          </Link>
+          </a>
         </div>
       </section>
     </div>
