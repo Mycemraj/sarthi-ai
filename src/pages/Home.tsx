@@ -1,6 +1,6 @@
 import logo from "../assets/sarthi-logo.svg";
 import { SatelliteIcon, DroneIcon, AIIcon } from "../components/graphics/ThemeIcons";
-import DroneShowcaseCard from "../components/graphics/DroneShowcaseCard";
+import FloatingDronePhoto from "../components/graphics/FloatingDronePhoto";
 
 const CAPABILITY_CHIPS = [
   { icon: SatelliteIcon, label: "Satellite Intelligence" },
@@ -31,7 +31,7 @@ export default function Home() {
           playsInline
         />
 
-        <DroneShowcaseCard className="right-4 top-20 sm:right-8 sm:top-24" />
+        <FloatingDronePhoto className="right-0 top-16 sm:right-4 sm:top-20 lg:right-10 lg:top-24" />
 
         <div className="relative z-10 flex flex-col min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full p-4 sm:p-6 md:p-8 gap-6">
           {/* Navbar */}
