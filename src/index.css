@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Sora", "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-serif-accent: "Instrument Serif", serif;
+
+  --color-navy: #081c3d;
+  --color-navy-light: #12315e;
+  --color-teal: #006d77;
+  --color-emerald: #2e8b57;
+  --color-azure: #00aeef;
+  --color-grey-light: #f5f7fa;
+  --color-grey-dark: #2d3748;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-grey-dark);
+  background: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
