@@ -7,13 +7,13 @@
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --font-serif-accent: "Instrument Serif", serif;
 
-  --color-navy: #081c3d;
-  --color-navy-light: #12315e;
-  --color-teal: #006d77;
-  --color-emerald: #2e8b57;
-  --color-azure: #00aeef;
-  --color-grey-light: #f5f7fa;
-  --color-grey-dark: #2d3748;
+  --color-navy: #0f2a22;
+  --color-navy-light: #1c3f33;
+  --color-teal: #2f6f5e;
+  --color-emerald: #c9922e;
+  --color-azure: #3fb6c0;
+  --color-grey-light: #f5f6f1;
+  --color-grey-dark: #2a322d;
 }
 
 html {
