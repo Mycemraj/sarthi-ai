@@ -34,7 +34,7 @@ export default function Home() {
           {/* Navbar */}
           <nav className="bg-white/95 backdrop-blur-md rounded-2xl shadow-md pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center gap-3 sm:gap-6">
             <a href="#home" className="flex items-center shrink-0">
-              <img src={logo} alt="Sarthi AI Solutions" className="h-10 w-auto" />
+              <img src={logo} alt="Sarthi AI Solutions" className="h-16 w-auto" />
             </a>
             <div className="hidden sm:flex items-center gap-6">
               {NAV_LINKS.map((link) => (
@@ -47,12 +47,6 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <a
-              href="#contact"
-              className="ml-auto bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors whitespace-nowrap"
-            >
-              Get in Touch
-            </a>
           </nav>
 
           <div className="flex-1 min-h-[2rem]" />
