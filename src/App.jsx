@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home.tsx";
 import About from "./pages/About";
@@ -12,7 +11,6 @@ function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <Home />
-      <Navbar />
       <main className="flex-1">
         <About />
         <Services />

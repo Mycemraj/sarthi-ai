@@ -58,55 +58,33 @@ export default function Home() {
           <div className="flex-1 min-h-[2rem]" />
 
           {/* Bottom row */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <div className="lg:max-w-lg xl:max-w-2xl shrink-0">
-              <div className="flex flex-wrap gap-2.5 mb-5">
-                {CAPABILITY_CHIPS.map(({ icon: Icon, label }) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 backdrop-blur-sm"
-                  >
-                    <Icon className="h-4 w-4 text-azure" />
-                    <span className="text-xs font-medium text-white">{label}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg">
-                We turn geospatial data
-                <br />
-                into resilient{" "}
-                <span
-                  style={{
-                    fontFamily: "'Instrument Serif', serif",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                  }}
+          <div className="lg:max-w-lg xl:max-w-2xl">
+            <div className="flex flex-wrap gap-2.5 mb-5">
+              {CAPABILITY_CHIPS.map(({ icon: Icon, label }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 backdrop-blur-sm"
                 >
-                  decisions
-                </span>
-                .
-              </p>
+                  <Icon className="h-4 w-4 text-azure" />
+                  <span className="text-xs font-medium text-white">{label}</span>
+                </div>
+              ))}
             </div>
-
-            {/* CTA panel */}
-            <div className="w-full lg:w-[min(420px,45%)] shrink-0">
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 flex flex-col gap-4">
-                <h2 className="text-xl sm:text-2xl font-semibold text-black tracking-tight">
-                  Ready when you are.
-                </h2>
-                <p className="text-sm leading-relaxed text-gray-600">
-                  Tell us about your project — site suitability, environmental compliance,
-                  disaster risk, or AI-driven analytics — and our team will get back to you
-                  within 24 hours.
-                </p>
-                <a
-                  href="#contact"
-                  className="inline-flex w-full items-center justify-center bg-black text-white text-sm font-semibold py-3 rounded-2xl hover:bg-gray-800 transition-colors"
-                >
-                  Get in Touch
-                </a>
-              </div>
-            </div>
+            <p className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg">
+              We turn geospatial data
+              <br />
+              into resilient{" "}
+              <span
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                }}
+              >
+                decisions
+              </span>
+              .
+            </p>
           </div>
         </div>
       </div>
