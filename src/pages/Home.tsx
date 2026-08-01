@@ -64,6 +64,9 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+              Sarthi AI Solutions
+            </p>
             <p className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg">
               We turn geospatial data
               <br />
