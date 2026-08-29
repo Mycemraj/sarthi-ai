@@ -12,9 +12,9 @@ const VIDEO_URL =
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
+  { href: "#sectors", label: "Industries" },
   { href: "#services", label: "Services" },
   { href: "#technology", label: "Technology" },
-  { href: "#sustainability", label: "Sustainability" },
 ];
 
 export default function Home() {

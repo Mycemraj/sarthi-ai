@@ -14,7 +14,7 @@ export default function Sustainability() {
     <div>
       <PageHero
         id="sustainability"
-        index="04"
+        index="05"
         eyebrow="Sustainability & ESG"
         title="Resilience and responsibility, by design"
         description="Environmental stewardship and disaster resilience aren't an add-on service — they're built into the methodology behind every engagement."
@@ -31,24 +31,29 @@ export default function Sustainability() {
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <Reveal>
             <div className="h-full rounded-2xl border border-grey-dark/10 p-6">
-              <h3 className="font-heading text-lg font-semibold text-navy">{eia.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">{eia.summary}</p>
-              <a
-                href="#eia"
-                className="mt-4 inline-block text-sm font-semibold text-teal"
-              >
+              <h3 className="font-heading text-lg font-semibold text-navy">
+                Environmental Compliance
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">
+                Baseline studies, impact assessment, and mitigation planning aligned to national
+                and international guidelines — the full {eia.title} breakdown lives in Core
+                Services.
+              </p>
+              <a href="#eia" className="mt-4 inline-block text-sm font-semibold text-teal">
                 View EIA capabilities →
               </a>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="h-full rounded-2xl border border-grey-dark/10 p-6">
-              <h3 className="font-heading text-lg font-semibold text-navy">{dmp.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">{dmp.summary}</p>
-              <a
-                href="#dmp"
-                className="mt-4 inline-block text-sm font-semibold text-teal"
-              >
+              <h3 className="font-heading text-lg font-semibold text-navy">
+                Disaster Resilience
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">
+                Hazard mapping, emergency response planning, and recovery frameworks — the full{" "}
+                {dmp.title} breakdown lives in Core Services.
+              </p>
+              <a href="#dmp" className="mt-4 inline-block text-sm font-semibold text-teal">
                 View disaster planning capabilities →
               </a>
             </div>

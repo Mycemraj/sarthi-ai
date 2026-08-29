@@ -192,7 +192,7 @@ export const esgPillars = [
 
 export const futureVision = {
   statement:
-    "Our vision is to enable sustainable development and resilient infrastructure through AI-driven geospatial and environmental solutions — a commitment that extends into how we invest in our own capability.",
+    "Capability compounds over time. Each horizon below builds on the last — deeper automation first, then continuous client visibility, then a broader role across the infrastructure lifecycle.",
   horizons: [
     {
       title: "Near-Term",

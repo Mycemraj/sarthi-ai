@@ -4,11 +4,9 @@ import TechStackGrid from "../components/graphics/TechStackGrid";
 import CapabilityMatrix from "../components/graphics/CapabilityMatrix";
 import Reveal from "../components/graphics/Reveal";
 import { ArrowRightIcon } from "../components/Icons";
-import { techStackLayers, capabilityMatrix, services } from "../data/content";
+import { techStackLayers, capabilityMatrix } from "../data/content";
 
 import aiDataStreams from "../assets/photos/ai-data-streams.jpg";
-
-const aiService = services.find((s) => s.id === "ai-ml");
 
 const aiArchitecture = [
   {
@@ -30,7 +28,7 @@ export default function Technology() {
     <div>
       <PageHero
         id="technology"
-        index="03"
+        index="04"
         eyebrow="Technology & Innovation"
         title="An AI-native technology stack"
         description="Geospatial and environmental expertise is delivered through a connected stack — acquisition, processing, intelligence, and visualization work as one system."
@@ -61,7 +59,7 @@ export default function Technology() {
           <Reveal>
             <SectionLabel index="02" label="AI & Machine Learning Solutions" dark />
             <p className="mt-4 max-w-3xl font-heading text-3xl font-bold text-white">
-              {aiService.summary}
+              One pipeline, from raw capture to a decision on someone's desk
             </p>
           </Reveal>
 
@@ -90,17 +88,12 @@ export default function Technology() {
             ))}
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {aiService.capabilities.map((c) => (
-              <div
-                key={c}
-                className="flex gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80 backdrop-blur-sm"
-              >
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" />
-                {c}
-              </div>
-            ))}
-          </div>
+          <a
+            href="#ai-ml"
+            className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-azure"
+          >
+            View full AI/ML capability list →
+          </a>
         </div>
       </section>
 

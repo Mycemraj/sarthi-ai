@@ -20,7 +20,7 @@ export default function About() {
         index="01"
         eyebrow="About Us"
         title="Engineering resilient, sustainable futures"
-        description="A specialized consulting and analytics firm at the intersection of geospatial science, environmental expertise, and artificial intelligence."
+        description="Geospatial, environmental, and AI expertise applied to infrastructure, industrial, and renewable energy programs that can't afford to get the site wrong."
       />
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
