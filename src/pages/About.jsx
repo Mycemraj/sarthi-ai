@@ -1,8 +1,8 @@
 import PageHero from "../components/PageHero";
 import SectionLabel from "../components/graphics/SectionLabel";
-import ContourLines from "../components/graphics/ContourLines";
 import Reveal from "../components/graphics/Reveal";
 import StatBlock from "../components/graphics/StatBlock";
+import earthIndia from "../assets/photos/earth-india.jpg";
 import {
   company,
   executiveOverview,
@@ -121,8 +121,15 @@ export default function About() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-navy py-20 text-white">
-        <ContourLines opacity={0.12} />
+      <section className="relative overflow-hidden py-20 text-white">
+        <img
+          src={earthIndia}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-navy/85" />
         <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
           <Reveal>
             <SectionLabel index="05" label="Future Vision" dark />

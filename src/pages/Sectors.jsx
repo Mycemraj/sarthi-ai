@@ -3,6 +3,22 @@ import { CheckIcon } from "../components/Icons";
 import SectionLabel from "../components/graphics/SectionLabel";
 import { sectors, visualCapabilities } from "../data/content";
 
+import solarFarm from "../assets/photos/solar-farm.jpg";
+import industrialFacility from "../assets/photos/industrial-facility.jpg";
+import cityNight from "../assets/photos/city-night.jpg";
+import miningQuarry from "../assets/photos/mining-quarry.jpg";
+import powerLines from "../assets/photos/power-lines.jpg";
+import earthSatellite from "../assets/photos/earth-satellite.jpg";
+
+const SECTOR_IMAGES = {
+  "Renewable Energy (Solar, Wind)": solarFarm,
+  "Industrial & Manufacturing": industrialFacility,
+  "Infrastructure & Urban Development": cityNight,
+  "Mining & Natural Resources": miningQuarry,
+  Power: powerLines,
+  "Government & Public Sector": earthSatellite,
+};
+
 export default function Sectors() {
   return (
     <div>
@@ -19,10 +35,20 @@ export default function Sectors() {
           {sectors.map((sector) => (
             <div
               key={sector.name}
-              className="rounded-2xl border border-grey-dark/10 bg-white p-8 shadow-sm transition-shadow hover:shadow-lg"
+              className="group relative h-72 overflow-hidden rounded-2xl shadow-sm transition-shadow hover:shadow-xl"
             >
-              <h3 className="font-heading text-lg font-semibold text-navy">{sector.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-grey-dark/70">{sector.blurb}</p>
+              <img
+                src={SECTOR_IMAGES[sector.name]}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/10" />
+              <div className="relative flex h-full flex-col justify-end p-6">
+                <h3 className="font-heading text-lg font-semibold text-white">{sector.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">{sector.blurb}</p>
+              </div>
             </div>
           ))}
         </div>

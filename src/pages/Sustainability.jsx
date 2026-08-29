@@ -4,6 +4,8 @@ import ContourLines from "../components/graphics/ContourLines";
 import Reveal from "../components/graphics/Reveal";
 import { company, esgPillars, services } from "../data/content";
 
+import forestCanopy from "../assets/photos/forest-canopy.jpg";
+
 const eia = services.find((s) => s.id === "eia");
 const dmp = services.find((s) => s.id === "dmp");
 
@@ -53,6 +55,22 @@ export default function Sustainability() {
           </Reveal>
         </div>
       </section>
+
+      <div className="relative h-72 overflow-hidden sm:h-96">
+        <img
+          src={forestCanopy}
+          alt="Aerial view of forest canopy"
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />
+        <div className="absolute inset-0 flex items-end">
+          <p className="mx-auto max-w-3xl px-6 pb-10 text-center font-heading text-2xl font-semibold text-white sm:text-3xl">
+            Every engagement is measured against its ecological footprint —
+            not just its outcome.
+          </p>
+        </div>
+      </div>
 
       <section className="relative overflow-hidden bg-navy py-20 text-white">
         <ContourLines opacity={0.12} color="#2E8B57" />
