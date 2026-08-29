@@ -1,14 +1,12 @@
 import logo from "../assets/sarthi-logo.svg";
 import { SatelliteIcon, DroneIcon, AIIcon } from "../components/graphics/ThemeIcons";
+import heroVideo from "../assets/video/hero-aerial.mp4";
 
 const CAPABILITY_CHIPS = [
   { icon: SatelliteIcon, label: "Satellite Intelligence" },
   { icon: DroneIcon, label: "Drone & Aerial Survey" },
   { icon: AIIcon, label: "AI & ML Analytics" },
 ];
-
-const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4";
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
@@ -23,12 +21,13 @@ export default function Home() {
       <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-[calc(100vh-48px)]">
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src={VIDEO_URL}
+          src={heroVideo}
           autoPlay
           muted
           loop
           playsInline
         />
+        <div className="absolute inset-0 bg-navy/25" />
 
         <div className="relative z-10 flex flex-col min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full p-4 sm:p-6 md:p-8 gap-6">
           {/* Navbar */}
