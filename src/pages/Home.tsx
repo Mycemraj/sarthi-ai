@@ -1,10 +1,10 @@
 import { useState } from "react";
 import logo from "../assets/sarthi-logo.svg";
 import { SatelliteIcon, DroneIcon, AIIcon } from "../components/graphics/ThemeIcons";
-import heroSurvey from "../assets/video/hero-aerial.mp4";
-import heroPowerPlant from "../assets/video/hero-powerplant.mp4";
-import heroSolar from "../assets/video/hero-solar.mp4";
-import heroKumbhMela from "../assets/video/hero-kumbhmela.mp4";
+import heroSatellite from "../assets/video/hero-satellite.mp4";
+import heroAI from "../assets/video/hero-ai.mp4";
+import heroEnvironment from "../assets/video/hero-environment.mp4";
+import heroInfrastructure from "../assets/video/hero-infrastructure.mp4";
 
 const CAPABILITY_CHIPS = [
   { icon: SatelliteIcon, label: "Satellite Intelligence" },
@@ -13,10 +13,10 @@ const CAPABILITY_CHIPS = [
 ];
 
 const HERO_VIDEOS = [
-  { src: heroSurvey, label: "Land Survey & Site Development" },
-  { src: heroPowerPlant, label: "Power Plant Drone Scanning" },
-  { src: heroSolar, label: "Solar Farm Aerial Mapping" },
-  { src: heroKumbhMela, label: "Kumbh Mela Crowd & Infrastructure Monitoring" },
+  { src: heroSatellite, label: "Satellite & GIS Mapping" },
+  { src: heroAI, label: "AI & Data Intelligence" },
+  { src: heroEnvironment, label: "Environmental & Disaster Risk Mapping" },
+  { src: heroInfrastructure, label: "Infrastructure & Engineering" },
 ];
 
 export default function Home() {
