@@ -45,7 +45,7 @@ export default function Home() {
           <img
             src={logo}
             alt="Sarthi AI Solutions"
-            className="h-16 w-auto drop-shadow-lg sm:h-20 md:h-24"
+            className="h-20 w-auto brightness-0 invert drop-shadow-lg sm:h-24 md:h-28"
           />
         </div>
 
