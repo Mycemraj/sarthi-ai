@@ -3,10 +3,13 @@ import ServiceAccordion from "../components/ServiceAccordion";
 import SectionLabel from "../components/graphics/SectionLabel";
 import ProcessWorkflow from "../components/graphics/ProcessWorkflow";
 import Reveal from "../components/graphics/Reveal";
+import { RadarIcon, LayersIcon, NetworkIcon, DocumentChartIcon } from "../components/graphics/PointIcons";
 import { services, methodology } from "../data/content";
 
 import droneMountains from "../assets/photos/drone-mountains.jpg";
 import topoMap from "../assets/photos/topo-map.jpg";
+
+const METHODOLOGY_ICONS = [RadarIcon, LayersIcon, NetworkIcon, DocumentChartIcon];
 
 export default function Services() {
   return (
@@ -87,7 +90,7 @@ export default function Services() {
             </p>
           </Reveal>
           <Reveal delay={0.1} className="mt-12">
-            <ProcessWorkflow steps={methodology} />
+            <ProcessWorkflow steps={methodology} icons={METHODOLOGY_ICONS} />
           </Reveal>
         </div>
       </section>

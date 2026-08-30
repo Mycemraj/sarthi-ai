@@ -4,6 +4,18 @@ import Reveal from "../components/graphics/Reveal";
 import StatBlock from "../components/graphics/StatBlock";
 import earthIndia from "../assets/photos/earth-india.jpg";
 import {
+  PrecisionIcon,
+  ShieldCheckIcon,
+  InnovationIcon,
+  LeafIcon,
+  LayersIcon,
+  CpuIcon,
+  DashboardIcon,
+  BoltIcon,
+  TrendingUpIcon,
+  GlobeIcon,
+} from "../components/graphics/PointIcons";
+import {
   company,
   executiveOverview,
   stats,
@@ -11,6 +23,26 @@ import {
   competitiveAdvantages,
   futureVision,
 } from "../data/content";
+
+const CORE_VALUE_ICONS = {
+  Precision: PrecisionIcon,
+  "Compliance & Integrity": ShieldCheckIcon,
+  Innovation: InnovationIcon,
+  Sustainability: LeafIcon,
+};
+
+const ADVANTAGE_ICONS = {
+  "Integrated, Not Siloed": LayersIcon,
+  "Technology-Led Delivery": CpuIcon,
+  "Compliance-First Approach": ShieldCheckIcon,
+  "Decision-Ready Deliverables": DashboardIcon,
+};
+
+const HORIZON_ICONS = {
+  "Near-Term": BoltIcon,
+  "Mid-Term": TrendingUpIcon,
+  "Long-Term": GlobeIcon,
+};
 
 export default function About() {
   return (
@@ -84,18 +116,26 @@ export default function About() {
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {coreValues.map((value, i) => (
-              <Reveal key={value.title} delay={(i % 4) * 0.08}>
-                <div className="h-full rounded-2xl bg-white p-6 shadow-sm">
-                  <h3 className="font-heading text-base font-semibold text-navy">
-                    {value.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">
-                    {value.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+            {coreValues.map((value, i) => {
+              const Icon = CORE_VALUE_ICONS[value.title];
+              return (
+                <Reveal key={value.title} delay={(i % 4) * 0.08}>
+                  <div className="h-full rounded-2xl bg-white p-6 shadow-sm">
+                    {Icon && (
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-teal/10 text-teal">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    )}
+                    <h3 className="font-heading text-base font-semibold text-navy">
+                      {value.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">
+                      {value.description}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -108,16 +148,24 @@ export default function About() {
           </p>
         </Reveal>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {competitiveAdvantages.map((item, i) => (
-            <Reveal key={item.title} delay={(i % 2) * 0.1}>
-              <div className="h-full rounded-2xl border border-grey-dark/10 p-6">
-                <h3 className="font-heading text-lg font-semibold text-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">
-                  {item.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+          {competitiveAdvantages.map((item, i) => {
+            const Icon = ADVANTAGE_ICONS[item.title];
+            return (
+              <Reveal key={item.title} delay={(i % 2) * 0.1}>
+                <div className="h-full rounded-2xl border border-grey-dark/10 p-6">
+                  {Icon && (
+                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-navy/5 text-navy">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  )}
+                  <h3 className="font-heading text-lg font-semibold text-navy">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-grey-dark/70">
+                    {item.description}
+                  </p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -139,18 +187,26 @@ export default function About() {
           </Reveal>
 
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {futureVision.horizons.map((horizon, i) => (
-              <Reveal key={horizon.title} delay={(i % 3) * 0.1}>
-                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <h3 className="font-heading text-base font-semibold text-azure">
-                    {horizon.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">
-                    {horizon.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+            {futureVision.horizons.map((horizon, i) => {
+              const Icon = HORIZON_ICONS[horizon.title];
+              return (
+                <Reveal key={horizon.title} delay={(i % 3) * 0.1}>
+                  <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
+                    {Icon && (
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-azure/10 text-azure">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    )}
+                    <h3 className="font-heading text-base font-semibold text-azure">
+                      {horizon.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/70">
+                      {horizon.description}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

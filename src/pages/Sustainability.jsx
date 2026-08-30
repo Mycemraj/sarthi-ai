@@ -2,12 +2,19 @@ import PageHero from "../components/PageHero";
 import SectionLabel from "../components/graphics/SectionLabel";
 import ContourLines from "../components/graphics/ContourLines";
 import Reveal from "../components/graphics/Reveal";
+import { LeafIcon, PeopleIcon, ScaleIcon } from "../components/graphics/PointIcons";
 import { company, esgPillars, services } from "../data/content";
 
 import forestCanopy from "../assets/photos/forest-canopy.jpg";
 
 const eia = services.find((s) => s.id === "eia");
 const dmp = services.find((s) => s.id === "dmp");
+
+const ESG_ICONS = {
+  Environmental: LeafIcon,
+  Social: PeopleIcon,
+  Governance: ScaleIcon,
+};
 
 export default function Sustainability() {
   return (
@@ -88,18 +95,26 @@ export default function Sustainability() {
           </Reveal>
 
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {esgPillars.map((pillar, i) => (
-              <Reveal key={pillar.pillar} delay={i * 0.1}>
-                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <h3 className="font-heading text-base font-semibold text-emerald">
-                    {pillar.pillar}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">
-                    {pillar.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+            {esgPillars.map((pillar, i) => {
+              const Icon = ESG_ICONS[pillar.pillar];
+              return (
+                <Reveal key={pillar.pillar} delay={i * 0.1}>
+                  <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
+                    {Icon && (
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald/10 text-emerald">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    )}
+                    <h3 className="font-heading text-base font-semibold text-emerald">
+                      {pillar.pillar}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/70">
+                      {pillar.description}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
