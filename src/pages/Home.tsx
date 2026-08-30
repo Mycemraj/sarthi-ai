@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "../assets/sarthi-logo.svg";
 import { SatelliteIcon, DroneIcon, AIIcon } from "../components/graphics/ThemeIcons";
 import heroSurvey from "../assets/video/hero-aerial.mp4";
 import heroPowerPlant from "../assets/video/hero-powerplant.mp4";
@@ -39,6 +40,12 @@ export default function Home() {
           onError={advanceVideo}
         />
         <div className="absolute inset-0 bg-navy/25" />
+
+        <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6 md:top-8 md:left-8">
+          <div className="inline-flex items-center rounded-xl bg-white/95 px-3 py-2 shadow-md backdrop-blur-md">
+            <img src={logo} alt="Sarthi AI Solutions" className="h-10 w-auto sm:h-12" />
+          </div>
+        </div>
 
         <div className="absolute bottom-5 right-5 z-10 flex items-center gap-1.5 sm:bottom-8 sm:right-8">
           {HERO_VIDEOS.map((video, i) => (
