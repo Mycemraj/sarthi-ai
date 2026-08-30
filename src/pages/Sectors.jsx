@@ -3,20 +3,20 @@ import { CheckIcon } from "../components/Icons";
 import SectionLabel from "../components/graphics/SectionLabel";
 import { sectors, visualCapabilities } from "../data/content";
 
-import solarFarm from "../assets/photos/solar-farm.jpg";
-import industrialFacility from "../assets/photos/industrial-facility.jpg";
-import cityNight from "../assets/photos/city-night.jpg";
-import miningQuarry from "../assets/photos/mining-quarry.jpg";
-import powerLines from "../assets/photos/power-lines.jpg";
-import earthSatellite from "../assets/photos/earth-satellite.jpg";
+import sectorSolar from "../assets/video/sector-solar.mp4";
+import sectorIndustrial from "../assets/video/sector-industrial.mp4";
+import sectorUrban from "../assets/video/sector-urban.mp4";
+import sectorMining from "../assets/video/sector-mining.mp4";
+import sectorPower from "../assets/video/sector-power.mp4";
+import sectorGovernment from "../assets/video/sector-government.mp4";
 
-const SECTOR_IMAGES = {
-  "Renewable Energy (Solar, Wind)": solarFarm,
-  "Industrial & Manufacturing": industrialFacility,
-  "Infrastructure & Urban Development": cityNight,
-  "Mining & Natural Resources": miningQuarry,
-  Power: powerLines,
-  "Government & Public Sector": earthSatellite,
+const SECTOR_VIDEOS = {
+  "Renewable Energy (Solar, Wind)": sectorSolar,
+  "Industrial & Manufacturing": sectorIndustrial,
+  "Infrastructure & Urban Development": sectorUrban,
+  "Mining & Natural Resources": sectorMining,
+  Power: sectorPower,
+  "Government & Public Sector": sectorGovernment,
 };
 
 export default function Sectors() {
@@ -37,11 +37,12 @@ export default function Sectors() {
               key={sector.name}
               className="group relative h-72 overflow-hidden rounded-2xl shadow-sm transition-shadow hover:shadow-xl"
             >
-              <img
-                src={SECTOR_IMAGES[sector.name]}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
+              <video
+                src={SECTOR_VIDEOS[sector.name]}
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/10" />
