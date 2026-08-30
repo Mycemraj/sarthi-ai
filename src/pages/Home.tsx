@@ -42,11 +42,14 @@ export default function Home() {
         <div className="absolute inset-0 bg-navy/25" />
 
         <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6 md:top-8 md:left-8">
-          <img
-            src={logo}
-            alt="Sarthi AI Solutions"
-            className="h-45 w-auto drop-shadow-lg sm:h-52 md:h-60"
-          />
+          <div className="relative inline-block">
+            <div className="absolute -inset-4 rounded-2xl bg-white/60 blur-xl" />
+            <img
+              src={logo}
+              alt="Sarthi AI Solutions"
+              className="relative h-32 w-auto drop-shadow-lg"
+            />
+          </div>
         </div>
 
         <div className="absolute bottom-5 right-5 z-10 flex items-center gap-1.5 sm:bottom-8 sm:right-8">
