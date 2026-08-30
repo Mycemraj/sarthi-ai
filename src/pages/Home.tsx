@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../assets/sarthi-logo.svg";
 import { SatelliteIcon, DroneIcon, AIIcon } from "../components/graphics/ThemeIcons";
 import heroSatellite from "../assets/video/hero-satellite.mp4";
@@ -19,26 +19,64 @@ const HERO_VIDEOS = [
   { src: heroInfrastructure, label: "Infrastructure & Engineering" },
 ];
 
-export default function Home() {
-  const [videoIndex, setVideoIndex] = useState(0);
+const CROSSFADE_MS = 900;
 
-  const advanceVideo = () => {
-    setVideoIndex((i) => (i + 1) % HERO_VIDEOS.length);
+export default function Home() {
+  const [current, setCurrent] = useState({ id: 0, index: 0 });
+  const [incoming, setIncoming] = useState(null);
+  const [incomingVisible, setIncomingVisible] = useState(false);
+  const nextId = useRef(1);
+
+  const startTransition = () => {
+    setIncoming({ id: nextId.current++, index: (current.index + 1) % HERO_VIDEOS.length });
   };
+
+  useEffect(() => {
+    if (!incoming) return;
+    setIncomingVisible(false);
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setIncomingVisible(true));
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [incoming]);
+
+  useEffect(() => {
+    if (!incoming || !incomingVisible) return;
+    const timer = setTimeout(() => {
+      setCurrent(incoming);
+      setIncoming(null);
+    }, CROSSFADE_MS);
+    return () => clearTimeout(timer);
+  }, [incoming, incomingVisible]);
+
+  const activeIndex = incoming ? incoming.index : current.index;
 
   return (
     <div id="home" className="min-h-screen bg-white p-3 sm:p-4 md:p-6">
       <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-[calc(100vh-48px)]">
         <video
-          key={HERO_VIDEOS[videoIndex].src}
-          className="absolute inset-0 w-full h-full object-cover animate-[hero-fade-in_0.9s_ease-out]"
-          src={HERO_VIDEOS[videoIndex].src}
+          key={current.id}
+          className="absolute inset-0 w-full h-full object-cover"
+          src={HERO_VIDEOS[current.index].src}
           autoPlay
           muted
           playsInline
-          onEnded={advanceVideo}
-          onError={advanceVideo}
+          onEnded={!incoming ? startTransition : undefined}
+          onError={!incoming ? startTransition : undefined}
         />
+        {incoming && (
+          <video
+            key={incoming.id}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity ease-in-out ${
+              incomingVisible ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ transitionDuration: `${CROSSFADE_MS}ms` }}
+            src={HERO_VIDEOS[incoming.index].src}
+            autoPlay
+            muted
+            playsInline
+          />
+        )}
         <div className="absolute inset-0 bg-navy/25" />
 
         <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6 md:top-8 md:left-8">
@@ -58,7 +96,7 @@ export default function Home() {
               key={video.label}
               title={video.label}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === videoIndex ? "w-6 bg-white" : "w-1.5 bg-white/40"
+                i === activeIndex ? "w-6 bg-white" : "w-1.5 bg-white/40"
               }`}
             />
           ))}
