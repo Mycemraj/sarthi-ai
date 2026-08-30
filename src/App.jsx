@@ -12,8 +12,8 @@ function App() {
     <div className="flex min-h-screen flex-col">
       <Home />
       <main className="flex-1">
-        <About />
         <Sectors />
+        <About />
         <Services />
         <Technology />
         <Sustainability />

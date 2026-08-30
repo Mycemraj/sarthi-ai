@@ -49,7 +49,7 @@ export default function About() {
     <div>
       <PageHero
         id="about"
-        index="01"
+        index="02"
         eyebrow="About Us"
         title="Engineering resilient, sustainable futures"
         description="Geospatial, environmental, and AI expertise applied to infrastructure, industrial, and renewable energy programs that can't afford to get the site wrong."

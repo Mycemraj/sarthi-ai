@@ -18,8 +18,8 @@ export default function Footer() {
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-azure">Navigate</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="#about" className="hover:text-white">About Us</a></li>
             <li><a href="#sectors" className="hover:text-white">Industries</a></li>
+            <li><a href="#about" className="hover:text-white">About Us</a></li>
             <li><a href="#services" className="hover:text-white">Services</a></li>
             <li><a href="#technology" className="hover:text-white">Technology</a></li>
             <li><a href="#sustainability" className="hover:text-white">Sustainability</a></li>
