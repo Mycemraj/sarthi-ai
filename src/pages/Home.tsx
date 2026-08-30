@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "../assets/sarthi-logo.svg";
 import { SatelliteIcon, DroneIcon, AIIcon } from "../components/graphics/ThemeIcons";
 import heroSurvey from "../assets/video/hero-aerial.mp4";
 import heroPowerPlant from "../assets/video/hero-powerplant.mp4";
@@ -17,13 +16,6 @@ const HERO_VIDEOS = [
   { src: heroPowerPlant, label: "Power Plant Drone Scanning" },
   { src: heroSolar, label: "Solar Farm Aerial Mapping" },
   { src: heroKumbhMela, label: "Kumbh Mela Crowd & Infrastructure Monitoring" },
-];
-
-const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#sectors", label: "Industries" },
-  { href: "#services", label: "Services" },
-  { href: "#technology", label: "Technology" },
 ];
 
 export default function Home() {
@@ -60,27 +52,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="relative z-10 flex flex-col min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full p-4 sm:p-6 md:p-8 gap-6">
-          {/* Navbar */}
-          <nav className="bg-white/95 backdrop-blur-md rounded-2xl shadow-md pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center gap-3 sm:gap-6">
-            <a href="#home" className="flex items-center shrink-0">
-              <img src={logo} alt="Sarthi AI Solutions" className="h-16 w-auto" />
-            </a>
-            <div className="hidden sm:flex items-center gap-6">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </nav>
-
-          <div className="flex-1 min-h-[2rem]" />
-
+        <div className="relative z-10 flex flex-col justify-end min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] lg:h-full p-4 sm:p-6 md:p-8 gap-6">
           {/* Bottom row */}
           <div className="lg:max-w-lg xl:max-w-2xl">
             <div className="flex flex-wrap gap-2.5 mb-5">
