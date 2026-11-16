@@ -6,7 +6,7 @@ import { Field, Fieldset } from "../components/FormField";
 import { inputClass, fieldA11y } from "../components/formUtils";
 import { openings } from "../data/pages";
 
-// Endpoint that accepts multipart form data with file uploads (e.g. a paid Formspree form).
+// Forminit form endpoint, e.g. https://forminit.com/f/abc123 (free plan includes file uploads).
 // Until VITE_CAREERS_ENDPOINT is set at build time, the form reports that it can't send.
 const ENDPOINT = import.meta.env.VITE_CAREERS_ENDPOINT;
 
@@ -108,36 +108,45 @@ export default function CareersApply() {
     const positionTitle =
       form.position === "general" ? "General Application" : openings.find((j) => j.id === form.position)?.title;
 
+    // Forminit only stores fields named fi-<type>-<name> (see README, "Careers form").
+    // Phone and links go as plain text: Forminit's own phone/url checks would reject
+    // numbers that aren't in +91… format, and we already validate them above.
+    const fields = {
+      "fi-sender-fullName": form.fullName.trim(),
+      "fi-sender-email": form.email.trim(),
+      "fi-text-reference": ref,
+      "fi-text-position": positionTitle,
+      "fi-text-mobile": form.phone.trim(),
+      "fi-text-city": form.city.trim(),
+      "fi-text-employmentType": form.employmentType,
+      "fi-text-experience": form.experience,
+      "fi-text-qualification": form.qualification.trim(),
+      "fi-text-organisation": form.organisation.trim(),
+      "fi-text-skills": form.skills.trim(),
+      "fi-text-linkedin": form.linkedin.trim(),
+      "fi-text-github": form.github.trim(),
+      "fi-text-portfolio": form.portfolio.trim(),
+      "fi-text-availability": form.availability.trim(),
+      "fi-text-internshipAvailability": form.internshipDuration.trim(),
+      "fi-text-whyJoin": form.whyJoin.trim(),
+      "fi-text-additional": form.additional.trim(),
+      "fi-text-recruitmentConsent": form.consent ? "Yes" : "No",
+    };
     const data = new FormData();
-    data.append("_subject", `Job application: ${positionTitle} — ${form.fullName.trim()} (${ref})`);
-    data.append("_gotcha", form._gotcha);
-    data.append("Reference", ref);
-    data.append("Full name", form.fullName.trim());
-    data.append("email", form.email.trim());
-    data.append("Mobile number", form.phone.trim());
-    data.append("Current city / state", form.city.trim());
-    data.append("Position applied for", positionTitle);
-    data.append("Employment type", form.employmentType);
-    data.append("Experience", form.experience);
-    data.append("Highest qualification", form.qualification.trim());
-    data.append("Current organisation", form.organisation.trim());
-    data.append("Key skills", form.skills.trim());
-    data.append("LinkedIn", form.linkedin.trim());
-    data.append("GitHub", form.github.trim());
-    data.append("Portfolio / website", form.portfolio.trim());
-    data.append("Notice period / earliest joining date", form.availability.trim());
-    data.append("Internship availability", form.internshipDuration.trim());
-    data.append("Why join Sarthi AI", form.whyJoin.trim());
-    data.append("Additional information", form.additional.trim());
-    data.append("Recruitment consent", form.consent ? "Yes" : "No");
-    data.append("resume", form.resume);
-    if (form.coverLetter) data.append("coverLetter", form.coverLetter);
+    data.append("_gotcha", form._gotcha); // honeypot, no fi- prefix
+    for (const [name, value] of Object.entries(fields)) if (value) data.append(name, value);
+    data.append("fi-file-resume", form.resume);
+    if (form.coverLetter) data.append("fi-file-coverLetter", form.coverLetter);
 
     setStatus("sending");
     try {
       if (!ENDPOINT) throw new Error("Careers endpoint is not configured");
-      const res = await fetch(ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: data });
-      if (!res.ok) throw new Error(`Request failed with ${res.status}`);
+      // No Content-Type header: the browser sets the multipart boundary itself.
+      const res = await fetch(ENDPOINT, { method: "POST", body: data });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || body.success === false) {
+        throw new Error(`Request failed with ${res.status}: ${body.error ?? ""} ${body.message ?? ""}`);
+      }
       setReference(ref);
       setStatus("success");
       window.scrollTo({ top: 0, behavior: "instant" });
