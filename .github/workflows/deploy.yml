@@ -31,7 +31,11 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-
+      - run: npm run build
+        env:
+          GH_PAGES: true
+          VITE_CONTACT_ENDPOINT: ${{ vars.VITE_CONTACT_ENDPOINT }}
+          VITE_CAREERS_ENDPOINT: ${{ vars.VITE_CAREERS_ENDPOINT }}
   deploy:
     needs: build
     runs-on: ubuntu-latest
